@@ -1,0 +1,12 @@
+
+Gradient boosted 是另一種ensemble 方法，該方法結合了多個決策樹以創建更強大的模型。
+可用作regression 和 classification，Gradient boosted 非常淺的樹，深度為1到5，使預測更快和模型比較小。
+Gradient boosting 主要思想是結合許多簡單的模型（稱為 weak learners），例如淺樹。 每棵樹只能提供好的對每部分數據的預測，因此越來越多的樹被加，就可以提高性能。
+
+除了pre-pruning和ensemble 中的樹木數量外，另一個重要梯度提升的參數是learning_rate，它控制著每棵樹都極力嘗試糾正先前的樹的錯誤。更高的學習速率意味著每棵樹都可以進行更強的校正，從而可以建立更複雜的模型。
+Ensemble中添加更多樹，這可以通過增加n_estimators也增加了模型的複雜度，因為模型有更多的機會糾正訓練集上的錯誤。
+
+Gradient boosted 決策樹屬於最強大和廣泛使用的監督學習模型。 他們的主要缺點是他們需要仔細調整參數，可能需要很長時間才能完成，主要參數是樹數n_estimators 和learning_rate，它控制每棵樹的程度允許更正先前樹的錯誤，這兩個參數是高度互連的，因為較低的learning_rate意味著需要更多的樹來構建相似複雜度的模型。
+
+在梯度提升中增加n_estimators會導致更複雜的模型，可能會導致overfitting。 常見的做法是n_estimators取決於時間和內存預算，然後搜索不同的學習率。
+另一個重要參數是max_depth（或max_leaf_nodes），用於降低每棵樹的複雜性。 通常將max_depth設置為非常低的漸變增強模型，通常不超過五個拆分。
